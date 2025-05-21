@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "97604085-7d67-44dd-be9f-a07dca575cfc",
+		"name": "CIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45161130"
+	},
+	"item": [
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// admin login\r\n\r\n// {\r\n//   \"username\": \"admin\",\r\n//   \"password\": \"admin\"\r\n// }\r\n\r\n// User login\r\n\r\n// {\r\n//     \"username\": \"user4\",\r\n//     \"password\": \"userpass123\"\r\n// }\r\n\r\n//manager login \r\n\r\n{\r\n    \"username\": \"M1\",\r\n    \"password\": \"userpass123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/token/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creat_user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"M1\",\r\n  \"email\": \"new1@example.com\",\r\n  \"password\": \"userpass123\",\r\n  \"role\": \"manager\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list_all_task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creat_task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Test Task-3\",\r\n  \"description\": \"Finish the assignment of Physic\",\r\n  \"assigned_to\": 3,\r\n  \"deadline\": \"2025-05-23T15:00:00Z\",\r\n  \"status\": \"pending\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Updated Task\",\r\n  \"description\": \"Updated description\",\r\n  \"assigned_to\": 2,\r\n  \"deadline\": \"2025-05-24T12:00:00Z\",\r\n  \"status\": \"done\",\r\n  \"missed\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign_task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Task for User 2\",\r\n  \"description\": \"Assigned via Postman\",\r\n  \"deadline\": \"2025-05-25T18:00:00Z\",\r\n  \"status\": \"pending\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks/assign/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"assign",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reactive_user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMDIxLCJpYXQiOjE3NDc4Mjk0MjEsImp0aSI6IjFhNmZmYzRjZjM5ZDRkMzNiMDNkYjNkMjc4YjhjYThjIiwidXNlcl9pZCI6Nn0.q_yEyqpP-drfhwaF9v5hnti-KU_N9Z1omdcUO4oLLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reactivate/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reactivate",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inactive_active",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODI4MjQzLCJpYXQiOjE3NDc4MjQ2NDMsImp0aSI6IjM0ODU4ZGQ5ZmJkZjRkZjU4YzdlMWQwYzg2YTQyMmNmIiwidXNlcl9pZCI6MX0.pTaWybrtIbogmmCMF7xkEON-MtiMtrCvOqzj-X0H7YY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/status/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"status",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODIzOTg0LCJpYXQiOjE3NDc4MjM2ODQsImp0aSI6IjhlMTQ4MGRlN2M0OTRjOTViMWRjNjlkYzE1NjJjOWM2IiwidXNlcl9pZCI6MX0.xHoPNG4uV-HsC2a7UiOod3PPGEvD_0-k7Efk9-z8L7U",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
